@@ -1,9 +1,11 @@
 
+
 // simple JS interface for Agora.io web SDK
 
 // app / channel settings
 var agoraAppId = "b4e10e2be04b4e639185be19f88e1cd4"; // Set your Agora App ID
 var channelName = 'any-channel';
+
 
 // video profile settings
 var cameraVideoProfile = '480_4'; // 640 × 480 @ 30fps  & 750kbs
@@ -16,6 +18,7 @@ var screenClient = AgoraRTC.createClient({mode: 'rtc', codec: 'vp8'}); // use th
 // stream references (keep track of active streams) 
 var remoteStreams = {}; // remote streams obj struct [id : stream] 
 
+
 var localStreams = {
   camera: {
     id: "",
@@ -26,6 +29,8 @@ var localStreams = {
     stream: {}
   }
 };
+
+
 
 var mainStreamId; // reference to main stream
 var screenShareActive = false; // flag for screen share 
@@ -44,8 +49,10 @@ client.on('stream-published', function (evt) {
 
 // connect remote streams
 client.on('stream-added', function (evt) {
+
   var stream = evt.stream;
   var streamId = stream.getId();
+
   console.log("new stream added: " + streamId);
   // Check if the stream is local
   if (streamId != localStreams.screen.id) {
@@ -58,6 +65,7 @@ client.on('stream-added', function (evt) {
 });
 
 client.on('stream-subscribed', function (evt) {
+
   var remoteStream = evt.stream;
   var remoteId = remoteStream.getId();
   remoteStreams[remoteId] = remoteStream;
@@ -68,10 +76,12 @@ client.on('stream-subscribed', function (evt) {
   } else {
     addRemoteStreamMiniView(remoteStream);
   }
+
 });
 
 // remove the remote-container when a user leaves the channel
 client.on("peer-leave", function(evt) {
+
   var streamId = evt.stream.getId(); // the the stream id
   if(remoteStreams[streamId] != undefined) {
     remoteStreams[streamId].stop(); // stop playing the feed
@@ -89,10 +99,12 @@ client.on("peer-leave", function(evt) {
       $(remoteContainerID).empty().remove(); // 
     }
   }
+
 });
 
 // show mute icon whenever a remote has muted their mic
 client.on("mute-audio", function (evt) {
+
   toggleVisibility('#' + evt.uid + '_mute', true);
 });
 
@@ -102,6 +114,7 @@ client.on("unmute-audio", function (evt) {
 
 // show user icon whenever a remote has disabled their video
 client.on("mute-video", function (evt) {
+
   var remoteId = evt.uid;
   // if the main user stops their video select a random user from the list
   if (remoteId != mainStreamId) {
@@ -139,8 +152,7 @@ function createCameraStream(uid) {
   localStream.init(function() {
     console.log("getUserMedia successfully");
     // TODO: add check for other streams. play local stream full size if alone in channel
-    localStream.play('local-video'); // play the given stream within the local-video div
-
+    localStream.play('local-video'); // play the given stream within the local-video di
     // publish local stream
     client.publish(localStream, function (err) {
       console.log("[ERROR] : publish local stream error: " + err);
@@ -237,6 +249,7 @@ function stopScreenShare() {
 // REMOTE STREAMS UI
 function addRemoteStreamMiniView(remoteStream){
   var streamId = remoteStream.getId();
+ 
   // append the remote stream template to #remote-streams
   $('#remote-streams').append(
     $('<div/>', {'id': streamId + '_container',  'class': 'remote-stream-container col'}).append(
@@ -250,6 +263,7 @@ function addRemoteStreamMiniView(remoteStream){
     )
   );
   remoteStream.play('agora_remote_' + streamId); 
+
 
   var containerId = '#' + streamId + '_container';
   $(containerId).dblclick(function() {
@@ -292,3 +306,4 @@ function leaveChannel() {
 function generateToken() {
   return '006b4e10e2be04b4e639185be19f88e1cd4IAAhRqcCZnBi7/jgzdVzSStfQMSoKa40QlGA/wwpLMYo3EFHP88AAAAAEADAFXCRLRQkXgEAAQAsFCRe'; // TODO: add a token generation
 }
+

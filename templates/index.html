@@ -1,24 +1,43 @@
 <html lang="en">
   <head>
+<<<<<<< HEAD
     <title>VideoClassroom
     </title>
+=======
+    <title>Agora Group Video Chat Demo</title>
+>>>>>>> ae21041a0b886060ee2a2223f5ed90681d0f4ca8
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css')}}"/>
 
 
+=======
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+>>>>>>> ae21041a0b886060ee2a2223f5ed90681d0f4ca8
   </head>
   <body>
     <div id="container">
       <div id="main-container">
+<<<<<<< HEAD
         <div id="screen-share-btn-container" class="col-2 float-right text-right mt-2">
             <button id="screen-share-btn"  type="button" class="btn btn-lg">
                 <i id="screen-share-icon" class="fas fa-share-square"></i>
             </button>
         </div>
         <div id="buttons-container" class="row justify-content-center mt-3">
+=======
+        <div id="screen-share-btn-container">
+          <!-- insert button to share screen -->
+          <div id="screen-share-btn-container" class="col-2 float-right text-right mt-2">
+            <button id="screen-share-btn"  type="button" class="btn btn-lg">
+                <i id="screen-share-icon" class="fas fa-share-square"></i>
+            </button>
+            </div>
+          <div id="buttons-container" class="row justify-content-center mt-3">
+>>>>>>> ae21041a0b886060ee2a2223f5ed90681d0f4ca8
             <div class="col-md-2 text-center">
                 <button id="mic-btn" type="button" class="btn btn-block btn-dark btn-lg">
                     <i id="mic-icon" class="fas fa-microphone"></i>
@@ -35,6 +54,16 @@
                 </button>
             </div>
         </div>
+<<<<<<< HEAD
+=======
+        
+        </div>
+        </div>
+        <div id="buttons-container">
+          <!-- insert buttons to toggle audio/video and leave/end call -->
+
+        </div>
+>>>>>>> ae21041a0b886060ee2a2223f5ed90681d0f4ca8
         <div id="full-screen-video"></div>
         <div id="lower-video-bar">
           <div id="remote-streams-container">
@@ -42,6 +71,7 @@
               <!-- insert remote streams dynamically -->
             </div>
           </div>
+<<<<<<< HEAD
           <div id="local-stream-container" class="col p-0">
             <div id="mute-overlay" class="col">
               <i id="mic-icon" class="fas fa-microphone-slash"></i>
@@ -50,13 +80,33 @@
               <i id="user-icon" class="fas fa-user"></i>
             </div>							
             <div id="local-video" class="col p-0"></div>
+=======
+          <div id="local-stream-container">						
+            <div id="local-video"></div>
+>>>>>>> ae21041a0b886060ee2a2223f5ed90681d0f4ca8
           </div>
         </div>
       </div>
     </div>
+<<<<<<< HEAD
   </body>
   <!-- CSS Includes go here -->
   <script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.0.0.js"></script>
+=======
+    <div id="local-stream-container" class="col p-0">
+        <div id="mute-overlay" class="col">
+          <i id="mic-icon" class="fas fa-microphone-slash"></i>
+        </div>
+        <div id="no-local-video" class="col text-center">
+          <i id="user-icon" class="fas fa-user"></i>
+        </div>							
+        <div id="local-video" class="col p-0"></div>
+      </div>
+  </body>
+  <!-- CSS Includes go here -->
+  <!-- JS Includes go here -->
+<script src="https://cdn.agora.io/sdk/web/AgoraRTCSDK-2.5.0.js"></script>
+>>>>>>> ae21041a0b886060ee2a2223f5ed90681d0f4ca8
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script>
@@ -65,8 +115,14 @@
     $("#screen-share-btn").prop("disabled", true);
     $("#exit-btn").prop("disabled", true);
 </script>
+<<<<<<< HEAD
 <script src="{{url_for('static',filename='app.js')}}"></script>
 
  <script src="{{url_for('static',filename='agora-interface.js')}}"></script>
   <!-- JS Includes go here -->
 </html>
+=======
+<!-- <script src="agora-interface.js"></script> -->
+<script type="text/javascript" src="{{url_for('static', filename='app.js')}}"></script>
+</html>
+>>>>>>> ae21041a0b886060ee2a2223f5ed90681d0f4ca8
