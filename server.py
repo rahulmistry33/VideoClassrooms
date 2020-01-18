@@ -4,8 +4,6 @@ from agora_community_sdk import AgoraRTC
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-
-
 # Creating instance of Flask...
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -14,6 +12,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
 
 db = SQLAlchemy(app)
+app.secret_key = 'videoclassroom'
 
 class User(db.Model):
     username = db.Column(db.String(40), primary_key = True, nullable=False)
@@ -32,6 +31,8 @@ def permit_login(username, password):
         user = User.query.filter_by(username=username).first()
         if user.password == password:
             print("Matched")
+            session["username"] = username
+            session["logged_in"] = True
             
             return redirect(url_for('dashboard'))
         else:
@@ -44,7 +45,16 @@ def permit_login(username, password):
 @app.route('/dashboard')
 def dashboard():
     print("Dashboard")
-    return render_template("dashboard.html")
+    return render_template("dashboard.html", username=session["username"])
+
+def is_logged_in(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'logged_in' in session:
+            return f(*args, **kwargs)
+        else:
+            return redirect(url_for('index'))   
+    return wrap
 
 @app.route("/register",methods=['GET','POST'])
 def register():
@@ -68,8 +78,11 @@ def login():
         username = request.form['username']
         password = request.form['password']
         return permit_login(username,password)
-
-    return render_template('login.html')
+    else:
+        if 'logged_in' in session:
+            return redirect(url_for('dashboard'))
+        else:
+            return render_template("login.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
