@@ -54,13 +54,18 @@
                     <a class="nav-link link text-white display-4" href="https://mobirisethemes.com">
                         About Us
                     </a>
-                </li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-white display-4" href="">
-                    <span class="btn-icon mbri-mobile mbr-iconfont mbr-iconfont-btn">
-                    </span>
-                    +91-9876543210
-                </a></div>
-        </div>
+                </li>
+
+            {% if logged_in == True %}
+            <li class="nav-item">
+                <a class="nav-link link text-white display-4" href="/logout">
+                    {{username}}
+                </a>
+            </li>
+            {% endif %}
+            </ul>
+
+    </div>
     </nav>
 </section>
 
