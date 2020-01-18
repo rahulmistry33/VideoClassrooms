@@ -34,10 +34,13 @@ function initClientAndJoinChannel(agoraAppId, channelName) {
   // init Agora SDK
   client.init(agoraAppId, function () {
     console.log("AgoraRTC client initialized");
-    joinChannel(channelName); // join channel upon successfull init
+    
+    joinChannel(channelName);
+     // join channel upon successfull init
   }, function (err) {
     console.log("[ERROR] : AgoraRTC client init failed", err);
   });
+  
 }
 
 
@@ -125,6 +128,7 @@ function joinChannel(channelName) {
       console.log("User " + uid + " join channel successfully");
       createCameraStream(uid);
       localStreams.camera.id = uid; // keep track of the stream uid 
+      
   }, function(err) {
       console.log("[ERROR] : join channel failed", err);
   });

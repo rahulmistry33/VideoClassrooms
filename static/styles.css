@@ -16,7 +16,9 @@
   
   #local-stream-container { 
     position: relative; 
-    display: inline-block;
+    /* display: inline-block; */
+    height:100px;
+    width:100px;
   }
   
   .remote-stream-container { 

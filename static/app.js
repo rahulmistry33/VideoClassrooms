@@ -2,8 +2,15 @@
 $( "#join-channel" ).click(function( event ) {
   var agoraAppId = $('#form-appid').val();
   var channelName = $('#form-channel').val();
+  
+  // window.alert("beforeee");
+
   initClientAndJoinChannel(agoraAppId, channelName);
+  
   $("#modalForm").modal("hide");
+ 
+            // return false;
+  // console.log("afterrrrrrrrr");
 });
 
 // UI buttons
