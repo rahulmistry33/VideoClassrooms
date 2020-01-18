@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css')}}"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 
+	<style type="text/css">
+		#modalForm .modal-dialog .modal-content{
+			font-family: 'Roboto Slab', serif;
+			background-image: linear-gradient(to right, lightgrey , lightblue);
+		}
+	</style>
+	
 	</head>
 	<body>
 		<div class="container-fluid p-0">
@@ -65,18 +73,24 @@
 					</div>
 					<div class="modal-body mx-3">
 						<div class="md-form mb-5">
-							<input type="text" id="form-appid" class="form-control">
-							<label for="form-appid">Agora AppId</label>
+							<div class="row">
+							<div class="col-md-3"><label for="form-appid">Agora Id</label></div>
+							<div class="col-md-9"><input type="text" id="form-appid" class="form-control"></div>
+							</div>
 						</div>
 		
-						<div class="md-form mb-4">
-							<input type="text" id="form-channel" class="form-control">
-							<label for="form-channel">Channel</label>
+						<div class="md-form mb-5">
+							<div class="row">
+								<div class="col-md-3">
+									<label for="form-channel">Channel</label>
+								</div>
+								<div class="col-md-9"><input type="text" id="form-channel" class="form-control" value="{{subject}}" readonly></div>
+								
+							</div>
 						</div>
-		
 					</div>
 					<div class="modal-footer d-flex justify-content-center">
-						<button id="join-channel" class="btn btn-default">Join Channel</button>
+						<button id="join-channel" class="btn btn-primary">Join Channel</button>
 					</div>
 				</div>
 			</div>

@@ -8,8 +8,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="{{url_for('static', filename='assets/images/logo2.png')}}" type="image/x-icon">
   <meta name="description" content="">
-  <title>Home</title>
+  <title>Welcome {{username}}</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{url_for('static',filename='assets/web/assets/mobirise-icons/mobirise-icons.css')}}">
+      
   <link rel="stylesheet" href="{{url_for('static', filename='assets/tether/tether.min.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='assets/bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='assets/bootstrap/css/bootstrap-grid.min.css')}}">
@@ -18,15 +23,10 @@
   <link rel="stylesheet" href="{{url_for('static', filename='assets/socicon/css/styles.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='assets/theme/css/style.css')}}">
   <link rel="stylesheet" href="{{url_for('static', filename='assets/mobirise/css/mbr-additional.css')}}" type="text/css">
-  
-  
-  
+
 </head>
 <body>
 <section class="menu cid-qxyOwCSYXH" once="menu" id="menu2-1" data-rv-view="74">
-
-    
-
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="hamburger">
@@ -39,40 +39,59 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="https://mobirisethemes.com">
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="">
                         VIDEO CLASSROOM
                     </a></span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="https://mobirisethemes.com">
+                    <a class="nav-link link text-white display-4" href="">
                         Services
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-white display-4" href="https://mobirisethemes.com">
+                    <a class="nav-link link text-white display-4" href="">
                         About Us
                     </a>
                 </li>
-
+             </ul>
             {% if logged_in == True %}
-            <li class="nav-item">
-                <a class="nav-link link text-white display-4" href="/logout">
+            <div class="navbar-buttons mbr-section-btn">
+                <a class="btn btn-sm btn-white display-4" href="/logout" data-toggle="modal" data-target="#exampleModalCenter">
+                    <span class=btn-icon mbri-mobile mbr-iconfont mbr-iconfont-btn></span>
                     {{username}}
                 </a>
-            </li>
+            </div>
             {% endif %}
-            </ul>
-
-    </div>
+        
+        </div>
     </nav>
 </section>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Logout of Video Classroom</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to logout ?
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary" href="/logout">Yes</a>
+        <a class="btn btn-secondary" data-dismiss="modal">No</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <section class="header1 cid-qxyOwk585I mbr-parallax-background" id="header1-0" data-rv-view="76">
-
-    
-
     <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(7, 33, 81);">
     </div>
 
@@ -105,10 +124,6 @@
 </section>
 
 <section class="features3 cid-qxyQhLuxk5" id="features3-2" data-rv-view="81">
-
-    
-
-    
     <div class="container">
         <div class="media-container-row">
             <div class="card p-3 col-12 col-md-6 col-lg-4">
@@ -122,8 +137,8 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br><strong>This course starts on 17 May and runs for 8 weeks.</strong><br>
                         </p>
                     </div>
-                    <div class="mbr-section-btn text-center"><a href="https://mobirisethemes.com" class="btn btn-primary display-4">
-                            Enroll</a></div>
+                    <div class="mbr-section-btn text-center"><a href="/courses/Programming" class="btn btn-primary display-4">
+                            Join</a></div>
                 </div>
             </div>
 
@@ -139,8 +154,8 @@
                             Aenean vitae sapien non urna ullamcorper laoreet.<br><strong>This course starts on 8 September and runs for 12 weeks.</strong><br>
                         </p>
                     </div>
-                    <div class="mbr-section-btn text-center"><a href="https://mobirisethemes.com" class="btn btn-primary display-4">
-                            Enroll</a></div>
+                    <div class="mbr-section-btn text-center"><a href="/courses/Physics" class="btn btn-primary display-4">
+                            Join</a></div>
                 </div>
             </div>
 
@@ -156,8 +171,8 @@
                             Duis congue eros ac urna cursus, nec luctus risus elementum.<br><strong>This course starts on 17 September and runs for 4 weeks.</strong>  
                         </p>
                     </div>
-                    <div class="mbr-section-btn text-center"><a href="https://mobirisethemes.com" class="btn btn-primary display-4">
-                            Enroll</a></div>
+                    <div class="mbr-section-btn text-center"><a href="/courses/Mathematics" class="btn btn-primary display-4">
+                            Join</a></div>
                 </div>
             </div>
 
@@ -167,10 +182,6 @@
 </section>
 
 <section class="features3 cid-qxyQnyyrYv" id="features3-4" data-rv-view="84">
-
-    
-
-    
     <div class="container">
         <div class="media-container-row">
             <div class="card p-3 col-12 col-md-6 col-lg-4">
@@ -185,8 +196,8 @@
                             Vivamus interdum pulvinar risus, nec tincidunt dolor interdum ut.<br><strong>This course starts on 8 September and runs for 12 weeks.</strong><br> 
                         </p>
                     </div>
-                    <div class="mbr-section-btn text-center"><a href="https://mobirisethemes.com" class="btn btn-primary display-4">
-                            Enroll</a></div>
+                    <div class="mbr-section-btn text-center"><a href="/courses/Chemistry" class="btn btn-primary display-4">
+                            Join</a></div>
                 </div>
             </div>
 
@@ -200,8 +211,8 @@
                         <p class="mbr-text mbr-fonts-style display-7">
                             Interdum et malesuada fames ac ante ipsum primis in faucibus.&nbsp;<br><strong>This course starts on 17 May and runs for 8 weeks.</strong></p>
                     </div>
-                    <div class="mbr-section-btn text-center"><a href="https://mobirisethemes.com" class="btn btn-primary display-4">
-                            Enroll</a></div>
+                    <div class="mbr-section-btn text-center"><a href="/courses/GraphicalDrawing" class="btn btn-primary display-4">
+                            Join</a></div>
                 </div>
             </div>
 
@@ -215,8 +226,8 @@
                         <p class="mbr-text mbr-fonts-style display-7">
                             Nullam condimentum eros nisl, id rutrum orci viverra facilisis.&nbsp;<br><strong>This course starts on 1 January and runs for 8 weeks.</strong></p>
                     </div>
-                    <div class="mbr-section-btn text-center"><a href="https://mobirisethemes.com" class="btn btn-primary display-4">
-                            Enroll</a></div>
+                    <div class="mbr-section-btn text-center"><a href="/courses/HTML" class="btn btn-primary display-4">
+                            Join</a></div>
                 </div>
             </div>
 
@@ -560,7 +571,7 @@
         <div class="media-container-row align-center mbr-white">
             <div class="col-12">
                 <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                    © Copyright 2017 Free Bootstrap Templates - All Rights Reserved
+                    © Baby Shark dodoododo
                 </p>
             </div>
         </div>
@@ -568,17 +579,17 @@
 </section>
 
 
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/popper/popper.min.js"></script>
-  <script src="assets/tether/tether.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/smooth-scroll/smooth-scroll.js"></script>
-  <script src="assets/dropdown/js/script.min.js"></script>
-  <script src="assets/jarallax/jarallax.min.js"></script>
-  <script src="assets/social-likes/social-likes.js"></script>
-  <script src="assets/touch-swipe/jquery.touch-swipe.min.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  <script src="assets/formoid/formoid.min.js"></script>
+  <script src="{{url_for('static', filename='assets/web/assets/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/popper/popper.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/tether/tether.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/smooth-scroll/smooth-scroll.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/dropdown/js/script.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/jarallax/jarallax.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/social-likes/social-likes.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/touch-swipe/jquery.touch-swipe.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/theme/js/script.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/formoid/formoid.min.js')}}"></script>
   
   
 </body>

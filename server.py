@@ -25,15 +25,14 @@ class User(db.Model):
 def layout():
     return render_template("layout.html")
 
-@app.route("/index")
-def index():
-    return render_template("index.html")
+@app.route("/courses/<subject>")
+def courses(subject):
+    return render_template("index.html", subject=subject)
 
 def permit_login(username, password):
     try:
         user = User.query.filter_by(username=username).first()
         if user.password == password:
-            print("Matched")
             session["username"] = username
             session["logged_in"] = True
             return redirect(url_for('dashboard'))
@@ -44,7 +43,6 @@ def permit_login(username, password):
 
 @app.route('/dashboard')
 def dashboard():
-    print(session["logged_in"])
     return render_template("dashboard.html", username=session["username"], logged_in=True)
 
 def is_logged_in(f):

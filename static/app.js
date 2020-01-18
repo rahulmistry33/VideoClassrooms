@@ -8,9 +8,6 @@ $( "#join-channel" ).click(function( event ) {
   initClientAndJoinChannel(agoraAppId, channelName);
   
   $("#modalForm").modal("hide");
- 
-            // return false;
-  // console.log("afterrrrrrrrr");
 });
 
 // UI buttons
