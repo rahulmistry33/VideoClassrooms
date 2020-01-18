@@ -6,10 +6,14 @@
 }
 
 body {
-		background-image:url("bg.png"); ;
-  background-repeat: no-repeat;
-  background-attachment:fixed;
+	background-image:url("login.jpg");
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-position: center;
+	
 	/*background: #f6f5f7;*/
+	background-size: cover;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
