@@ -20,7 +20,7 @@
   }
   
   .remote-stream-container { 
-    display: inline-block;
+    display: flex;
   }
   
   #remote-streams {
