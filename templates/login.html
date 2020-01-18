@@ -1,0 +1,67 @@
+
+
+<html>
+<head>
+<title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="signup.php" method="post">
+			<h1>Create Account</h1>
+			 <input size=50 type="text" name="Name" placeholder="Name" required >
+			<select name="User-type">
+				<option value="" disabled selected style="font-family: 'Montserrat', sans-serif;">Select User-type</option>
+  				<option value="Computer">Donor</option>
+      			<option value="IT">NGO</option>
+			</select>
+			 <input size=50 type="text" name="Username" placeholder="Username" required>
+			 <input size=50 type="Password" name="Password" placeholder="Password" required>
+			 <input size=50 type="tel" name="Contact" placeholder="Contact" required>
+			 <input size=50 type="Email" name="Email" placeholder="Email" required>
+			
+
+			<input class="ghost" type="submit" name="submit" value="Sign up" style="background-color: #5783E9; border-radius: 10px; cursor: pointer;"> </input>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="login.php" method="post">
+			<h1>Sign in</h1>
+			<input size=50 name="Username" type="text" placeholder="Username" />
+			<input name="Password" type="Password" placeholder="Password" />
+			<a href="#">Forgot your password?</a>
+			<input class="ghost" type="submit" name="submit" value="Sign in" style="background-color: #5783E9; border-radius:10px; cursor: pointer;"> </input>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+		
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+</script>
+</body>
+</html>
