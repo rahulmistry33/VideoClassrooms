@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request, session, flash,Response
 # from agora_community_sdk import AgoraRTC
+
 # import models as dbHandler
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -22,6 +23,10 @@ class User(db.Model):
     contact = db.Column(db.String())
     usertype = db.Column(db.String())
 
+@app.route("/")
+def layout():
+    return render_template("layout.html")
+
 @app.route("/index")
 def index():
     return render_template("index.html")
@@ -33,19 +38,16 @@ def permit_login(username, password):
             print("Matched")
             session["username"] = username
             session["logged_in"] = True
-            
             return redirect(url_for('dashboard'))
         else:
             return render_template("login.html")
     except:
-        print("error")
         return redirect(url_for("login"))
-
 
 @app.route('/dashboard')
 def dashboard():
-    print("Dashboard")
-    return render_template("dashboard.html", username=session["username"])
+    print(session["logged_in"])
+    return render_template("dashboard.html", username=session["username"], logged_in=True)
 
 def is_logged_in(f):
     @wraps(f)
@@ -68,7 +70,9 @@ def register():
         user = User(username=username, email=email, name=name, password=password, contact=contact, usertype=usertype)
         db.session.add(user)
         db.session.commit()
-        return redirect('index')
+        session["username"] = username
+        session["logged_in"] = True
+        return redirect('dashboard')
    		# users = dbHandler.retrieveUsers()
     return render_template('login.html')
 
@@ -83,6 +87,11 @@ def login():
             return redirect(url_for('dashboard'))
         else:
             return render_template("login.html")
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('layout'))
 
 if __name__ == "__main__":
     app.run(debug=True)
