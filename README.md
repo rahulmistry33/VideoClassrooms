@@ -1,1 +1,1 @@
-# VideoClassrooms
+# Easy Learning
