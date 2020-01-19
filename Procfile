@@ -1,1 +1,1 @@
-web: gunicorn infinite-basin-76306:app
+web: gunicorn server:app
