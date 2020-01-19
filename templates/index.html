@@ -1,115 +1,488 @@
-<html lang="en">
-	<head>
-		<title>Agora Group Video Chat Demo</title>
-		<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css')}}"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
-
-	<style type="text/css">
-		#modalForm .modal-dialog .modal-content{
-			font-family: 'Roboto Slab', serif;
-			background-image: linear-gradient(to right, lightgrey , lightblue);
-		}
-	</style>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landing Page</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/darkly/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>    
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!-- Link all the custom stylesheets and scripts here -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <!-- <script src="https://kit.fontawesome.com/08e4ab6b32.js" crossorigin="anonymous"></script> -->
+  
+</head>
+<body id="page-top">
+<nav class="navbar sticky-top navbar-default navbar-expand-lg navbar-dark bg-dark" style="border: none;">
+	<div class="navbar-header d-flex col">
+		<a class="navbar-brand" href="/admin">Word<b>Flow</b></a>  		
+		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+			<span class="navbar-toggler-icon"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
 	
-	</head>
-	<body>
-		<div class="container-fluid p-0">
-			<div id="main-container">
-				<div id="screen-share-btn-container" class="col-2 float-right text-right mt-2">
-					<button id="screen-share-btn"  type="button" class="btn btn-lg">
-						<i id="screen-share-icon" class="fas fa-share-square"></i>
-					</button>
-				</div>
-				<div id="buttons-container" class="row justify-content-center mt-3">
-					<div class="col-md-2 text-center">
-						<button id="mic-btn" type="button" class="btn btn-block btn-dark btn-lg">
-							<i id="mic-icon" class="fas fa-microphone"></i>
-						</button>
-					</div>
-					<div class="col-md-2 text-center">
-						<button id="video-btn"  type="button" class="btn btn-block btn-dark btn-lg">
-							<i id="video-icon" class="fas fa-video"></i>
-						</button>
-					</div>
-					<div class="col-md-2 text-center">
-						<button id="exit-btn"  type="button" class="btn btn-block btn-danger btn-lg">
-							<i id="exit-icon" class="fas fa-phone-slash"></i>
-						</button>
-					</div>
-				</div>
-				<div id="full-screen-video"></div>
-				<div id="lower-video-bar" class="row fixed-bottom mb-1">
-					<div id="remote-streams-container" class="container col-9 ml-1">
-						<div id="remote-streams" class="row">
-							<!-- insert remote streams dynamically -->
-						</div>
-					</div>
-					<div id="local-stream-container" class="col p-0">
-						<div id="mute-overlay" class="col">
-							<i id="mic-icon" class="fas fa-microphone-slash"></i>
-						</div>
-						<div id="no-local-video" class="col text-center">
-							<i id="user-icon" class="fas fa-user"></i>
-						</div>
-						<div id="local-video" class="col p-0"></div>
-					</div>
-				</div>
+  <form class="navbar-form form-inline search-form">
+			<div class="input-group">
+				<input type="text" class="form-control" placeholder="Search...">
+				<span class="input-group-btn">
+					<button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
+				</span>
 			</div>
-		</div>
-		<!-- Modal -->
-		<div class="modal fade" id="modalForm">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header text-center">
-						<h4 class="modal-title w-100 font-weight-bold">Join Channel</h4>
-						<button type="button" class="close" data-dismiss="modal">
-							<span>&times;</span>
-						</button>
-					</div>
-					<div class="modal-body mx-3">
-						<div class="md-form mb-5">
-							<div class="row">
-							<div class="col-md-3"><label for="form-appid">Agora Id</label></div>
-							<div class="col-md-9"><input type="text" id="form-appid" class="form-control"></div>
-							</div>
-						</div>
+		</form>
+  	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start" style="width: 500px;">
+		<ul class="nav navbar-nav">
+			<li class="nav-item" style="margin: 0% 15px;"><a href="/" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-home"></i></span>Home</a></li>
+			<li class="nav-item" style="margin: 0% 10px;"><a href="/about" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-users"></i></span>About</a></li>
+			<li class="nav-item" style="margin: 0% 10px;"><a href="/pricing" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-dollar-sign"></i></span>Pricing</a></li>
+			<li class="nav-item" style="margin: 0% 10px;"><a href="/contact" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-envelope"></i></span>Contact</a></li>
+      		<li class="nav-item" style="margin: 0% 10px;"><a href="/help" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-question-circle"></i></i></span>Help</a></li>
+      		<li class="nav-item"><a class="nav-link" href="/login"><span style="margin: 0% 8px;"><i class="fa fa-user"></i></span> Login</a></li>
+		</ul>
+	</div>
+</nav>
+
+
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home.css')}}">
+<!-- Header -->
+  <header class="masthead" style="margin-top: -1.5%;">
+    <div class="container">
+      <div class="intro-text">
+        <div class="intro-lead-in">Welcome To WordFlow!</div>
+        <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/register">Register</a>
+      </div>
+	</div>
+  </header>
+
+  <!-- Services -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Services</h2>
+          <h3 class="section-subheading text-muted">Our Community provides best possible services at minimum cost</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Design Portfolio</h4>
+          <p class="text-muted">Start developing portfolio for getting your resume strong.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-heart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Build a fan base</h4>
+          <p class="text-muted">Get in touch with our community and attract more followers with our fascinating bloggers.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-book-reader fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Start your own blogs</h4>
+          <p class="text-muted">Write more and more blogs and keeping share thoughts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section class="page-section" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Timeline</h2>
+          <h3 class="section-subheading text-muted">Here's how we are approaching towards an enormous community and best blogging site</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="{{url_for('static', filename='images/about/1.jpg')}}" alt="beginning">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>2018-2019</h4>
+                  <h4 class="subheading">Our Humble Beginnings</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Starting with small number of collaborators, binding new collaborators with time and implementing the features enabling bloggers write blogs easily.</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="{{url_for('static', filename='images/about/2.jpg')}}" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>May 2019</h4>
+                  <h4 class="subheading">Community expanding widely</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Heading towards a vast expanding community of more than 20K bloggers</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image">
+                <img class="rounded-circle img-fluid" src="{{url_for('static', filename='images/about/3.jpg')}}" alt="">
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4>June 2018</h4>
+                  <h4 class="subheading">Premium Features added</h4>
+                </div>
+                <div class="timeline-body">
+                  <p class="text-muted">Releasing premium features to our fascinating community of bloggers to encourage them to write more blogs.</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image">
+                <h4>Be Part
+                  <br>Of Our
+                  <br>Community!</h4>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="bg-light page-section" id="team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+          <h3 class="section-subheading text-muted">Have a look at our amazing team</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-xs-12">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{{url_for('static', filename='images/team.png')}}" alt="">
+            <h4>Girish Thatte</h4>
+            <p class="text-muted">Software Developer</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{{url_for('static', filename='images/team.png')}}" alt="">
+            <h4>Rahul Mistry</h4>
+            <p class="text-muted">Backend Developer</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12">
+          <div class="team-member">
+            <img class="mx-auto rounded-circle" src="{{url_for('static', filename='images/team.png')}}" alt="">
+            <h4>Prachit Mhalgi</h4>
+            <p class="text-muted">Junior Developer</p>
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <p class="large text-muted">Blogging the reel world, sharing millions of thoughts across the community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style type="text/css">
+  	header.masthead{
+  		background-image: url({{url_for("static", filename="images/header-bg.jpg") }});
+  	}
+  	section#contact{
+  		background-image: url({{url_for("static", filename="images/map-image.png") }});
+  	}
+  </style>
+
+<footer class="page-footer font-small blue pt-4 bg-dark">
+  <div class="container-fluid text-center text-md-left">
+    <div class="row" id="footer-content">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <h5 class="text-uppercase">WordFlow Inc.</h5>
+        <p>An easy to use platform for reading, writing posts.</p>
+      </div>
+      <hr class="clearfix w-100 d-md-none pb-3">
+      <div class="col-md-3 mb-md-0 mb-3">
+        <h5 class="text-uppercase">Follow us on</h5>
+        <ul class="list-unstyled">
+          <li><a href="https://www.instagram.com/"><span class="pr-3"><i class="fab fa-instagram"></i></span>Instagram</a></li>
+          <li><a href="https://www.facebook.com/"><span class="pr-3"><i class="fab fa-facebook"></i></span>Facebook</a></li>
+          <li><a href="https://www.twitter.com/"><span class="pr-3"><i class="fab fa-twitter"></i></span>Twitter</a></li>
+          <li><a href="https://www.wechat.com/en"><span class="pr-3"><i class="fab fa-weixin"></i></span>We Chat</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  	<div class="row"  style="border: 1px solid white;">
+  		<div class="footer-copyright text-center py-3 col-sm-6" style="color: white;">© 2019 Copyright:
+    		<a href="https://mdbootstrap.com/education/bootstrap/"> Classroom.com</a>
+    	</div>
+    	<div class="footer-copyright text-center py-3 col-sm-6">
+    	<ul class="list-inline">
+    	<li><a href="">Terms Of Use</a></li>
+    	<li><a href="">Privacy Policy</a></li>
+    	<li><a href="">Report Errors</a></li>
+    </ul>
+  </div>
+  </div>
+</footer>
+
+<style type="text/css">
+	body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+	overflow-x: hidden;
+}	
+	.list-unstyled a, .list-unstyled a span{
+		color: white;
+	}
+	.card h5{
+		padding: 1.25rem 1.25rem;
+		margin-top: 0;
+	}
+	#category a{
+		color: black;
+	}
+	.jumbotron {
+		background: #358CCE;
+		color: #FFF;
+		border-radius: 0px;
+	}
+	.jumbotron-sm { 
+		padding-top: 24px;
+		padding-bottom: 24px; 
+	}
+	.jumbotron small {
+		color: #FFF;
+	}
+	.h1 small {
+		font-size: 24px;
+	}
+	#subject{
+		height: 34px;
+	}
+	.form-control {
+		box-shadow: none;
+		border-radius: 4px;        
+        border-color: #dfe3e8;
+	}
+	.form-control:focus {
+		border-color: #29c68c;
+		box-shadow: 0 0 8px rgba(0,0,0,0.1);
+	}
+	.navbar-header.col {
+		padding: 0 !important;
+	}	
+	.navbar {
+		background: #fff;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 1px solid #dfe3e8;
+		border-radius: 0;
+	}
+	.navbar .navbar-brand {
+		font-size: 20px;
+		padding-left: 0;
+		padding-right: 50px;
+	}
+	.navbar .navbar-brand b {
+		font-weight: bold;
+		color: #29c68c;		
+	}
+	
+	.navbar ul.nav li a {
+		color: #999;
+		font-size: 16px;
+	}
+	.navbar ul.nav li a:hover, .navbar ul.nav li a:focus {
+		color: #29c68c !important;
+	}
+	.navbar ul.nav li.active > a, .navbar ul.nav li.open > a {
+		color: #26bb84 !important;
+		background: transparent !important;
+	}
+
+    .navbar .form-inline .input-group-addon {
+		box-shadow: none;
+        border-radius: 2px 0 0 2px;
+		background: #f5f5f5;
+        border-color: #dfe3e8;
+        font-size: 16px;
+        padding: 6px 10px;
+    }
+	.navbar .form-inline i {
+		font-size: 16px;
+	}
+	.navbar .form-inline .btn {
+		border-radius: 2px;
+		color: #fff;
+        border-color: #29c68c;
+		background: #29c68c;
+		outline: none;
+	}
+	.navbar .form-inline .btn:hover, .navbar .form-inline .btn:focus {
+        border-color: #26bb84;
+		background: #26bb84;
+    }
+	.navbar .search-form {
+		display: inline-block;
+	}
+	.navbar .search-form .btn {
+		margin-left: 4px;
+	}
+	.navbar .search-form .form-control {
+		border-radius: 2px;
+	}
+	.navbar .login-form .input-group {
+		margin-right: 4px;
+		float: left;
+	}
+	.navbar .login-form .form-control {
+		max-width: 158px;
+		border-radius: 0 2px 2px 0;
+	}    	
+	a.nav-link{
+		font-family: 'Roboto Slab';
+	}
+	a.nav-link .dropdown-toggle::after{
+		margin-top: 10px;
+	}
+	.navbar .navbar-right .dropdown-toggle::after {
 		
-						<div class="md-form mb-5">
-							<div class="row">
-								<div class="col-md-3">
-									<label for="form-channel">Channel</label>
-								</div>
-								<div class="col-md-9"><input type="text" id="form-channel" class="form-control" value="{{subject}}" readonly></div>
-								
-							</div>
-						</div>
-					</div>
-					<div class="modal-footer d-flex justify-content-center">
-						<button id="join-channel" class="btn btn-primary">Join Channel</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
-	<script src="https://cdn.agora.io/sdk/release/AgoraRTCSDK-3.0.0.js"></script>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-		$("#mic-btn").prop("disabled", true);
-		$("#video-btn").prop("disabled", true);
-		$("#screen-share-btn").prop("disabled", true);
-		$("#exit-btn").prop("disabled", true);
+		display: none;
+	}
+	.navbar .dropdown-menu {
+		border-radius: 1px;
+		border-color: #e5e5e5;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	.navbar .dropdown-menu li a {
+		padding: 6px 20px;
+	}
+	.navbar .navbar-right .dropdown-menu {
+		width: 505px;
+		padding: 20px;
+		left: auto;
+		right: 0;
+        font-size: 14px;
+	}
 
-		$(document).ready(function(){
-			$("#modalForm").modal("show");
-		});
-	</script>
-	<script src="{{url_for('static',filename='app.js')}}"></script>
-	<script src="{{url_for('static',filename='agora-interface.js')}}"></script>
+	#footer-content{
+		color: #fff;
+	}
+	@media (min-width: 1200px){
+		.search-form .input-group {
+			width: 300px;
+			margin-left: 30px;
+		}
+	}
+	@media (max-width: 768px){
+		.navbar .navbar-right .dropdown-menu {
+			width: 100%;
+			background: transparent;
+			padding: 10px 20px;
+		}
+		.navbar .input-group {
+			width: 100%;
+			margin-bottom: 15px;
+		}
+		.navbar .input-group .form-control {
+			max-width: none;			
+		}
+		.navbar .login-form .btn {
+			width: 100%;
+		}
+	}
+</style>
+
+</body>
 </html>

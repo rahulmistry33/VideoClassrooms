@@ -24,12 +24,15 @@ class User(db.Model):
     usertype = db.Column(db.String())
 
 @app.route("/")
-def layout():
-    return render_template("layout.html")
+def index():
+    return render_template("index.html")
 
 @app.route("/courses/<subject>")
 def courses(subject):
-    return render_template("index.html", subject=subject)
+    if 'logged_in' in session:
+        return render_template("courseJoin.html", subject=subject)
+    else:
+        return redirect(url_for('login'))
 
 def permit_login(username, password):
     try:
@@ -88,8 +91,11 @@ def login():
 
 @app.route('/logout')
 def logout():
-    session.clear()
-    return redirect(url_for('layout'))
+    if 'logged_in' in session:
+        session.clear()
+        return redirect(url_for('index'))
+    else:
+        return redirect(url_for('dashboard'))
 
 if __name__ == "__main__":
     app.run(debug=True)
