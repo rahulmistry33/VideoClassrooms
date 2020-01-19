@@ -1,1 +1,1 @@
-web: gunicorn deploy:app
+web: gunicorn infinite-basin-76306:app
