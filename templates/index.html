@@ -23,13 +23,15 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <!-- Link all the custom stylesheets and scripts here -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-  <!-- <script src="https://kit.fontawesome.com/08e4ab6b32.js" crossorigin="anonymous"></script> -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='images/logo/apple-touch-icon.png')}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='images/logo/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='images/logo/favicon-16x16.png')}}">
   
 </head>
 <body id="page-top">
 <nav class="navbar sticky-top navbar-default navbar-expand-lg navbar-dark bg-dark" style="border: none;">
 	<div class="navbar-header d-flex col">
-		<a class="navbar-brand" href="/admin">Word<b>Flow</b></a>  		
+		<a class="navbar-brand" href="#">Easy<b>Learning</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -47,13 +49,9 @@
 			</div>
 		</form>
   	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start" style="width: 500px;">
-		<ul class="nav navbar-nav">
-			<li class="nav-item" style="margin: 0% 15px;"><a href="/" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-home"></i></span>Home</a></li>
-			<li class="nav-item" style="margin: 0% 10px;"><a href="/about" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-users"></i></span>About</a></li>
-			<li class="nav-item" style="margin: 0% 10px;"><a href="/pricing" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-dollar-sign"></i></span>Pricing</a></li>
-			<li class="nav-item" style="margin: 0% 10px;"><a href="/contact" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-envelope"></i></span>Contact</a></li>
-      		<li class="nav-item" style="margin: 0% 10px;"><a href="/help" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-question-circle"></i></i></span>Help</a></li>
-      		<li class="nav-item"><a class="nav-link" href="/login"><span style="margin: 0% 8px;"><i class="fa fa-user"></i></span> Login</a></li>
+		<ul class="nav navbar-nav pull-right">
+			<li class="nav-item active" style="margin: 0% 20px;"><a href="/" class="nav-link"><span style="margin: 0% 8px;"><i class="fas fa-home"></i></span>Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="/login"><span style="margin: 0% 8px;"><i class="fa fa-user"></i></span> Login</a></li>
 		</ul>
 	</div>
 </nav>
@@ -65,7 +63,7 @@
   <header class="masthead" style="margin-top: -1.5%;">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-lead-in">Welcome To WordFlow!</div>
+        <div class="intro-lead-in">Welcome To Easy Learning!</div>
         <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
         <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/register">Register</a>
       </div>
@@ -82,97 +80,21 @@
         </div>
       </div>
       <div class="row text-center">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Design Portfolio</h4>
-          <p class="text-muted">Start developing portfolio for getting your resume strong.</p>
+          <h4 class="service-heading">Join Classroom</h4>
+          <p class="text-muted">Sign up/Sign in and get access to live lectures</p>
         </div>
-        <div class="col-md-4">
-          <span class="fa-stack fa-4x">
-            <i class="fas fa-circle fa-stack-2x text-primary"></i>
-            <i class="fas fa-heart fa-stack-1x fa-inverse"></i>
-          </span>
-          <h4 class="service-heading">Build a fan base</h4>
-          <p class="text-muted">Get in touch with our community and attract more followers with our fascinating bloggers.</p>
-        </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-book-reader fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Start your own blogs</h4>
-          <p class="text-muted">Write more and more blogs and keeping share thoughts.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- About -->
-  <section class="page-section" id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Timeline</h2>
-          <h3 class="section-subheading text-muted">Here's how we are approaching towards an enormous community and best blogging site</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          <ul class="timeline">
-            <li>
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="{{url_for('static', filename='images/about/1.jpg')}}" alt="beginning">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>2018-2019</h4>
-                  <h4 class="subheading">Our Humble Beginnings</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">Starting with small number of collaborators, binding new collaborators with time and implementing the features enabling bloggers write blogs easily.</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="{{url_for('static', filename='images/about/2.jpg')}}" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>May 2019</h4>
-                  <h4 class="subheading">Community expanding widely</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">Heading towards a vast expanding community of more than 20K bloggers</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-image">
-                <img class="rounded-circle img-fluid" src="{{url_for('static', filename='images/about/3.jpg')}}" alt="">
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4>June 2018</h4>
-                  <h4 class="subheading">Premium Features added</h4>
-                </div>
-                <div class="timeline-body">
-                  <p class="text-muted">Releasing premium features to our fascinating community of bloggers to encourage them to write more blogs.</p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-image">
-                <h4>Be Part
-                  <br>Of Our
-                  <br>Community!</h4>
-              </div>
-            </li>
-          </ul>
+          <h4 class="service-heading">Interactive Live Lectures</h4>
+          <p class="text-muted">Distant learning</p>
         </div>
       </div>
     </div>
@@ -266,7 +188,7 @@
 
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted">Blogging the reel world, sharing millions of thoughts across the community.</p>
+          <p class="large text-muted">Education for all and sharing millions of thoughts across the globe.</p>
         </div>
       </div>
     </div>
@@ -285,8 +207,8 @@
   <div class="container-fluid text-center text-md-left">
     <div class="row" id="footer-content">
       <div class="col-md-6 mt-md-0 mt-3">
-        <h5 class="text-uppercase">WordFlow Inc.</h5>
-        <p>An easy to use platform for reading, writing posts.</p>
+        <h5 class="text-uppercase">Easy Learning Inc.</h5>
+        <p>An easy to use platform for anytime, anywhere education</p>
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
       <div class="col-md-3 mb-md-0 mb-3">
@@ -301,8 +223,8 @@
     </div>
   </div>
   	<div class="row"  style="border: 1px solid white;">
-  		<div class="footer-copyright text-center py-3 col-sm-6" style="color: white;">© 2019 Copyright:
-    		<a href="https://mdbootstrap.com/education/bootstrap/"> Classroom.com</a>
+  		<div class="footer-copyright text-center py-3 col-sm-6" style="color: white;">© 2020 Copyright:
+    		<a href="https://mdbootstrap.com/education/bootstrap/"> EasyLearning.com</a>
     	</div>
     	<div class="footer-copyright text-center py-3 col-sm-6">
     	<ul class="list-inline">
