@@ -72,6 +72,7 @@ This project was done `under 24-hours` from scratch with no preparation
 
 -----------------------------------------------
   
+## This project was developed at Dotslash SVNIT'20
 
  
 
