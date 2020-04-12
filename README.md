@@ -67,7 +67,7 @@ This project was done `under 24-hours` from scratch with no preparation
 ## Contributors
 
 - [Rahul Mistry](https://github.com/rahulmistry33)
-- [Girish Thatte](https://github.com/giryagr8)
+- [Girish Thatte](https://github.com/girishgr8)
 - [Prachit Mhalgi](https://github.com/Prachit99)
 
 -----------------------------------------------
